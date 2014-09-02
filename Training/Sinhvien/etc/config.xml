@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <training_Sinhvien>
+            <version>0.1.0</version>
+        </training_Sinhvien>
+    </modules>
+    <frontend>
+        <routers>
+            <training_sinhvien>
+                <use>standard</use>
+                <args>
+                    <module>training_Sinhvien</module>
+                    <frontName>sinhvien</frontName>
+                </args>
+            </training_sinhvien>
+        </routers>
+        <layout>
+            <updates>
+                <Training_sinhvien>
+                    <file>sinhvien.xml</file>
+                </Training_sinhvien>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+
+        <events>
+
+
+
+            <!--edit all product for category-->
+            <catalog_product_collection_load_after>
+                <observers>
+                    <edit_price_category>
+                        <type>disabled</type>
+                        <class>Training_Sinhvien_Model_SaleObserver</class>
+                        <method>editPriceCategory</method>
+                    </edit_price_category>
+                </observers>
+            </catalog_product_collection_load_after>
+
+            <!--edit price when view detail product-->
+            <catalog_product_get_final_price>
+                <observers>
+                    <edit_detail_price>
+                        <type>disabled</type>
+                        <class>Training_Sinhvien_Model_SaleObserver</class>
+                        <method>editPriceDetail</method>
+                    </edit_detail_price>
+                </observers>
+            </catalog_product_get_final_price>
+
+            <!--edit product before add to cart (from originPrice)-->
+            <checkout_cart_product_add_after>
+                <observers>
+                    <edit_price>
+                        <type>disabled</type>
+                        <class>Training_Sinhvien_Model_SaleObserver</class>
+                        <method>editCart</method>
+                    </edit_price>
+                </observers>
+            </checkout_cart_product_add_after>
+        </events>
+        <models>
+            <training_sinhvien>
+                <class>training_Sinhvien_Model</class>
+                <resourceModel>training_sinhvien_resource</resourceModel>
+            </training_sinhvien>
+            <training_sinhvien_resource>
+                <class>training_Sinhvien_Model_Resource</class>
+                <entities>
+                    <sinhvien>
+                        <table>tbl_sinhvien</table>
+                    </sinhvien>
+                </entities>
+            </training_sinhvien_resource>
+        </models>
+        <blocks>
+            <training_sinhvien>
+                <class>training_Sinhvien_Block</class>
+            </training_sinhvien>
+        </blocks>
+        <helpers>
+            <training_sinhvien>
+                <class>training_Sinhvien_Helper</class>
+            </training_sinhvien>
+        </helpers>
+        <resources>
+            <training_sinhvien_setup>
+                <setup>
+                    <module>training_Sinhvien</module>
+                    <class>Training_Sinhvien_Model_Resource_Setup</class>
+                </setup>
+            </training_sinhvien_setup>
+        </resources>
+    </global>
+</config>

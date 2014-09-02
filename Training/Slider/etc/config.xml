@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Training_Slider>
+            <version>0.1.0</version>
+        </Training_Slider>
+    </modules>
+    <frontend>
+        <routers>
+            <Training_Slider>
+                <use>standard</use>
+                <args>
+                    <module>Training_Slider</module>
+                    <frontName>slider</frontName>
+                </args>
+            </Training_Slider>
+        </routers>
+        <layout>
+            <updates>
+                <training_slider>
+                    <file>slider.xml</file>
+                </training_slider>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <events>
+            <!--dump layout for every page-->
+            <controller_action_layout_generate_blocks_before>
+                <observers>
+                    <debug_layout>
+                        <type>disabled</type>
+                        <class>Training_Slider_Model_Observer</class>
+                        <method>logCompiledLayout</method>
+                    </debug_layout>
+                </observers>
+            </controller_action_layout_generate_blocks_before>
+            <!--end dump layout-->
+
+            <!--show config-->
+            <controller_front_init_routers>
+                <observers>
+                    <something>
+                        <type>disabled</type>
+                        <class>Training_Slider_Model_Observer</class>
+                        <method>checkForConfigRequest</method>
+                    </something>
+                </observers>
+            </controller_front_init_routers>
+            <!--end show config-->
+
+            <!--test my own event-->
+            <hoanghuyhoang>
+                <observers>
+                    <oaseut>
+                        <type>singleton</type>
+                        <class>Training_Slider_Model_Observer</class>
+                        <method>myevent</method>
+                    </oaseut>
+                </observers>
+            </hoanghuyhoang>
+
+        </events>
+        <models>
+            <training_slider>
+                <class>Training_Slider_Model</class>
+                <resourceModel>training_slider_resource</resourceModel>
+            </training_slider>
+            <training_slider_resource>
+                <class>Training_Slider_Model_Resource</class>
+            </training_slider_resource>
+        </models>
+        <blocks>
+            <training_slider>
+                <class>Training_Slider_Block</class>
+            </training_slider>
+        </blocks>
+        <helpers>
+            <training_slider>
+                <class>Training_Slider_Helper</class>
+            </training_slider>
+        </helpers>
+        <resources>
+            <training_slider_setup>
+                <setup>
+                    <module>Training_Slider</module>
+                </setup>
+            </training_slider_setup>
+        </resources>
+    </global>
+</config>

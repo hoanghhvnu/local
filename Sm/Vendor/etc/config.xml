@@ -1,0 +1,54 @@
+<?xml version='1.0'?>
+<config>
+	<modules>
+		<Sm_Vendor>
+			<version>0.1.0</version>
+		</Sm_Vendor>
+	</modules>
+
+	<frontend>
+		<routers>
+			<vendor>
+				<use>standard</use>
+				<args>
+					<module>Sm_Vendor</module>
+					<frontName>vendor</frontName>
+				</args>
+			</vendor>
+		</routers>
+		<layout>
+			<updates>
+				<vendor>
+					<file>vendor.xml</file>
+				</vendor>
+			</updates>
+		</layout>
+	</frontend>
+
+    <global>
+        <models>
+            <vendor>
+                <class>Sm_Vendor_Model</class>
+                <resourceModel>vendor_resource</resourceModel>
+            </vendor>
+
+            <vendor_resource>
+                <class>Sm_Vendor_Model_Resource</class>
+                <entities>
+                    <eavvendor>
+                        <table>eavvendor</table>
+                    </eavvendor>
+                </entities>
+            </vendor_resource>
+        </models>
+
+        <resources>
+            <vendor_setup>
+                <setup>
+                    <module>Sm_Vendor</module>
+                    <class>Sm_Vendor_Model_Resource_Setup</class>
+                </setup>
+            </vendor_setup>
+        </resources>
+    </global>
+</config>

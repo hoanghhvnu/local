@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<adminhtml>
+    <menu>
+        <slider translate="title" module="training_demo1">
+            <title>Quản lý slider</title>
+            <sort_order>40</sort_order>
+            <!-- action>adminhtml/demo2/</action -->
+            <children>
+                <item1 translate="title" module="training_demo1">
+                    <title>Danh sách</title>
+                    <sort_order>1</sort_order>
+                    <action>slider/employee</action>
+                </item1>
+                <item2>
+                    <title>Thêm mới Slider</title>
+                    <sort_order>2</sort_order>
+                    <action>slider/employee/insert</action>
+                </item2>
+
+            </children>
+         </slider>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <slider translate="title" module="training_slider">
+                        <title>demo2</title>
+                        <sort_order>40</sort_order>
+                        <children>
+                            <group translate="title">
+                                <title>demo2 Groups</title>
+                                <sort_order>10</sort_order>
+                            </group>
+                            <manage translate="title">
+                                <title>Manage demo2</title>
+                                <sort_order>0</sort_order>
+                            </manage>
+                            <online translate="title">
+                                <title>Online demo2</title>
+                                <sort_order>100</sort_order>
+                            </online>
+                        </children>
+                    </slider>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <demo2 translate="title" module="training_slider">
+                                        <title>demo2 Section</title>
+                                        <sort_order>50</sort_order>
+                                    </demo2>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</adminhtml>
